@@ -40,6 +40,10 @@ Widget text_12_400(String? value,[Color color = Colors.black]){
   return Text("$value",style:textTheme1.bodyLarge?.copyWith(color: color));
 }
 
+Widget text_24_700(String? value,[Color color = textNormal]){
+  return Text("$value",style:textTheme1.headlineMedium?.copyWith(color: color,fontSize: 24.sp));
+}
+
 Widget text_10_400(String? value,[Color color = Colors.black]){
   return Text("$value",style:textTheme1.bodyMedium?.copyWith(color: color));
 }

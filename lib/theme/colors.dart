@@ -14,6 +14,6 @@ const Color red = Colors.red;
 
 const Color black = Color(0xff0B0C0C);
 const Color pureBlack = Color(0xff000000);
-const Color textNormal = Color(0xff333333);
+const Color textNormal = Color(0xff3C3C3C);
 const Color veryLightGreen = Color(0xffF0F9F3);
 const Color asdasdasd = Color(0xffF0F9F3);

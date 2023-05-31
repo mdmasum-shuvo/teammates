@@ -25,7 +25,7 @@ InputDecorationTheme inputDecorationTheme() {
       top: 13.5.h, // HERE THE IMPORTANT PART
     ),
 
-    hintStyle: const TextStyle(color: Color(0xff666666)),
+    hintStyle: const TextStyle(color: Color(0xff666666),fontSize: 14),
     //background: #8BC53F40;
 
 
@@ -34,11 +34,11 @@ InputDecorationTheme inputDecorationTheme() {
     filled: true,
     floatingLabelBehavior: FloatingLabelBehavior.always,
     enabledBorder: const OutlineInputBorder(
-      borderSide: BorderSide(width: 1, color: Colors.green),
+      borderSide: BorderSide(width: 1, color: primaryDarkColor),
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
     focusedBorder: const OutlineInputBorder(
-      borderSide: BorderSide(width: 1, color: Colors.green),
+      borderSide: BorderSide(width: 1, color:primaryDarkColor),
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
   );

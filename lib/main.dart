@@ -59,10 +59,10 @@ Future<String> hasPreviousSession() async {
 
       return Routes.HOME;
     } else {
-      return Routes.SIGN_IN;
+      return Routes.RESET_PASSWORD;
     }
   }
-  return Routes.SIGN_IN;
+  return Routes.RESET_PASSWORD;
 }
 
 class MyApp extends StatelessWidget {

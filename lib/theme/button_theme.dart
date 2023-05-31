@@ -5,21 +5,21 @@ import 'package:teammates/theme/text_theme.dart';
 
 import 'Colors.dart';
 
-Widget greenButton(String text, Function() onPressed) {
+Widget primaryButton(String text, Function() onPressed) {
   return SizedBox(
     height: 48.h,
     width: double.infinity,
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
-          primary: secondaryColor,
+          primary: primaryDarkColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12.r),
-              side: const BorderSide(color: secondaryColor))),
+              side: const BorderSide(color: primaryDarkColor))),
       onPressed: () {
         onPressed();
       },
-      child:text_16_700(text,Colors.white)
+      child:text_16_400(text,Colors.white)
     ),
   );
 }

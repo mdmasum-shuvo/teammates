@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class VerifyPhoneNumberController extends GetxController {
   //TODO: Implement VerifyPhoneNumberController
+  final emailPhoneController = TextEditingController(text: "");
 
   final count = 0.obs;
   @override

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:teammates/app/routes/app_pages.dart';
+import 'package:teammates/theme/Colors.dart';
+import 'package:teammates/theme/button_theme.dart';
+import 'package:teammates/theme/text_theme.dart';
 
 import '../../../../theme/image_assets.dart';
 import '../controllers/sign_in_controller.dart';
@@ -11,14 +16,76 @@ class SignInView extends GetView<SignInController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SignInView'),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          Image.asset(logo)
-        ],
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Flexible(flex: 2,child: Spacer(),),
+              Expanded(
+                child: Image.asset(
+                  logo,
+                  height: 66.h,
+                ),
+              ),
+              const Flexible(flex: 2,child: Spacer(),),
+
+              Expanded(
+                flex: 5,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    text_24_700("Sign In"),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    text_12_400("Enter your registered official phone number"),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    TextFormField(
+                      keyboardType:TextInputType.phone ,
+                      controller: controller.emailPhoneController,
+                      decoration: InputDecoration(
+                        hintText: "+880 **************",
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    TextFormField(
+                      controller: controller.emailPhoneController,
+                      decoration: InputDecoration(
+                        hintText: "enter password",
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    GestureDetector(
+                      onTap: (){
+                        Get.toNamed(Routes.FORGET_PASSWORD);
+                      },
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: text_12_400("Forget Password", primaryDarkColor),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    ),
+                    primaryButton("Login", () => null)
+                  ],
+                ),
+              ),
+              const Flexible(
+                flex: 1,
+                child: Spacer(),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
