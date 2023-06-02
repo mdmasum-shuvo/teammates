@@ -4,8 +4,12 @@ import '../modules/forget_password/bindings/forget_password_binding.dart';
 import '../modules/forget_password/views/forget_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/index/bindings/index_binding.dart';
+import '../modules/index/views/index_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/recent/bindings/recent_binding.dart';
+import '../modules/recent/views/recent_view.dart';
 import '../modules/reset_password/bindings/reset_password_binding.dart';
 import '../modules/reset_password/views/reset_password_view.dart';
 import '../modules/sign_in/bindings/sign_in_binding.dart';
@@ -57,6 +61,16 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.RECENT,
+      page: () => const RecentView(),
+      binding: RecentBinding(),
+    ),
+    GetPage(
+      name: _Paths.INDEX,
+      page: () => const IndexView(),
+      binding: IndexBinding(),
     ),
   ];
 }

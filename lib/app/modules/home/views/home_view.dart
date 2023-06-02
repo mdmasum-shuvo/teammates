@@ -1,24 +1,119 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:teammates/app/modules/index/views/index_view.dart';
+import 'package:teammates/app/modules/profile/views/profile_view.dart';
+import 'package:teammates/app/modules/recent/views/recent_view.dart';
 
+import '../../../../theme/Colors.dart';
+import '../../../../theme/app_bar_home.dart';
+import '../../../../theme/text_theme.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomeView'),
-        centerTitle: true,
+      appBar: customAppbarWidgetDashboard(),
+      body: PageView(
+        controller: controller.pageController,
+        onPageChanged: (v) {
+          controller.tabIndex.value = v;
+        },
+        children: [
+          RecentView(),
+          IndexView(),
+          ProfileView(),
+        ],
       ),
-      body: const Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      bottomNavigationBar: Obx(() => BottomAppBar(
+            shape: CircularNotchedRectangle(),
+            notchMargin: 10,
+            child: Container(
+              height: 60.h,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      // HomeView(); // if user taps on this dashboard tab will be active
+                      controller.tabIndex.value = 0;
+                      controller.pageController
+                          .jumpToPage(controller.tabIndex.value);
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(Icons.history,
+                            color: controller.tabIndex.value == 0
+                                ? primaryDarkColor
+                                : Colors.grey,
+                            size: 18),
+                        text_10_400(
+                            "Recent",
+                            controller.tabIndex.value == 0
+                                ? primaryDarkColor
+                                : Colors.grey)
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      //CategoryView(); // if user taps on this dashboard tab will be active
+                      controller.tabIndex.value = 1;
+                      controller.pageController
+                          .jumpToPage(controller.tabIndex.value);
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(Icons.manage_search,
+                            color: controller.tabIndex.value == 1
+                                ? primaryDarkColor
+                                : Colors.grey,
+                            size: 18),
+                        text_10_400(
+                            "Index",
+                            controller.tabIndex.value == 1
+                                ? primaryDarkColor
+                                : Colors.grey)
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      Container(); // if user taps on this dashboard tab will be active
+                      controller.tabIndex.value = 2;
+                      controller.pageController
+                          .jumpToPage(controller.tabIndex.value);
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(Icons.person_2_outlined,
+                            color: controller.tabIndex.value == 2
+                                ? primaryDarkColor
+                                : Colors.grey,
+                            size: 18),
+                        text_10_400(
+                            "Profile",
+                            controller.tabIndex.value == 2
+                                ? primaryDarkColor
+                                : Colors.grey)
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )),
     );
   }
 }

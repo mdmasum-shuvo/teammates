@@ -10,6 +10,8 @@ abstract class Routes {
   static const VERIFY_PHONE_NUMBER = _Paths.VERIFY_PHONE_NUMBER;
   static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
   static const PROFILE = _Paths.PROFILE;
+  static const RECENT = _Paths.RECENT;
+  static const INDEX = _Paths.INDEX;
 }
 
 abstract class _Paths {
@@ -21,4 +23,6 @@ abstract class _Paths {
   static const VERIFY_PHONE_NUMBER = '/verify-phone-number';
   static const RESET_PASSWORD = '/reset-password';
   static const PROFILE = '/profile';
+  static const RECENT = '/recent';
+  static const INDEX = '/index';
 }

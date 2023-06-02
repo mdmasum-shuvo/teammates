@@ -35,6 +35,9 @@ Widget text_16_600(String? value,[Color color = Colors.black]){
 Widget text_14_400(String? value,[Color color = Colors.black]){
   return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color));
 }
+Widget text_14_500(String? value,[Color color = Colors.black]){
+  return Text("$value",style:textTheme1.titleMedium?.copyWith(color: color,fontWeight: FontWeight.w500));
+}
 
 Widget text_12_400(String? value,[Color color = Colors.black]){
   return Text("$value",style:textTheme1.bodyLarge?.copyWith(color: color));
