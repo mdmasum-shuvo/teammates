@@ -2,7 +2,7 @@
 class Constants {
   static var headers = {'Accept': "application/json"};
 
-  static var baseUrl = "https://dev.appinionbd.com/qfl-ecom-admin/api";
+  static var baseUrl = "http://rnd.appinionbd.com/contactbook/index.php/api";
 
   static var monthName = [
     "",

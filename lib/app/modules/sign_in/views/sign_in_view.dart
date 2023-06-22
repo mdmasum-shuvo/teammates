@@ -55,7 +55,7 @@ class SignInView extends GetView<SignInController> {
                       height: 8.h,
                     ),
                     TextFormField(
-                      controller: controller.emailPhoneController,
+                      controller: controller.passwordController,
                       decoration: InputDecoration(
                         hintText: "enter password",
                       ),
@@ -75,7 +75,7 @@ class SignInView extends GetView<SignInController> {
                     SizedBox(
                       height: 16.h,
                     ),
-                    primaryButton("Login", () => null)
+                    primaryButton("Login", () => controller.login())
                   ],
                 ),
               ),
