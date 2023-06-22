@@ -21,8 +21,8 @@ class RecentView extends GetView<RecentController> {
           padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.h),
           child: SafeArea(
               child: SingleChildScrollView(
-                child: Column(
-            children: [
+            child: Column(
+              children: [
                 TextFormField(
                   keyboardType: TextInputType.phone,
                   controller: controller.emailPhoneController,
@@ -48,35 +48,41 @@ class RecentView extends GetView<RecentController> {
                   height: 16.h,
                 ),
                 SizedBox(
-                  child: GridView.count(
-                    // Create a grid with 2 columns. If you change the scrollDirection to
-                    // horizontal, this produces 2 rows.
-                    crossAxisCount: 3,
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    // Generate 100 widgets that display their index in the List.
-                    children: List.generate(6, (index) {
-                      return favoriteItem("Masum Talukder");
-                    }),
-                  ),
+                  child: Obx(() => GridView.count(
+                        // Create a grid with 2 columns. If you change the scrollDirection to
+                        // horizontal, this produces 2 rows.
+                        crossAxisCount: 3,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        // Generate 100 widgets that display their index in the List.
+                        children: List.generate(
+                            controller.favEmployeeList.value.data!.length,
+                            (index) {
+                          return favoriteItem(
+                              controller.favEmployeeList.value.data![index]);
+                        }),
+                      )),
                 ),
-
-                Align(alignment:Alignment.topLeft
-                    ,child: text_14_400("Recent", primaryDarkColor)),
-                SizedBox(height: 16.h,),
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: text_14_400("Recent", primaryDarkColor)),
                 SizedBox(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount:6,
-                    itemBuilder: (context, index) {
-                      return  userItem();
-                    },
-                  ),
+                  height: 16.h,
                 ),
-            ],
-          ),
-              )),
+                SizedBox(
+                  child: Obx(() => ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: controller.employeeList.value.data!.length,
+                        itemBuilder: (context, index) {
+                          return userItem(
+                              controller.employeeList.value.data![index]);
+                        },
+                      )),
+                ),
+              ],
+            ),
+          )),
         ));
   }
 }

@@ -5,8 +5,9 @@ import 'package:teammates/theme/Colors.dart';
 import 'package:teammates/theme/text_theme.dart';
 
 import '../../../../../theme/image_assets.dart';
+import '../../../index/model/EmployeeResponse.dart';
 
-Widget favoriteItem(String title) {
+Widget favoriteItem(Data data) {
   return Column(
     children: [
       Expanded(
@@ -20,7 +21,7 @@ Widget favoriteItem(String title) {
         ),
       ),
       SizedBox(height: 8.h,),
-      text_12_400(title),
+      text_12_400(data.employeeName),
       SizedBox(height: 16.h,),
 
     ],

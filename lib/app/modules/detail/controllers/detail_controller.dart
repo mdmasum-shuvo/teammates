@@ -1,13 +1,13 @@
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:teammates/app/modules/index/model/EmployeeDetailResponse.dart';
 
 import '../../../../theme/Colors.dart';
 import '../../../utils/snackbar.dart';
+import '../../index/model/EmployeeDetailResponse.dart';
 import '../../index/providers/employee_provider.dart';
 
-class ProfileController extends GetxController {
-  //TODO: Implement ProfileController
+class DetailController extends GetxController {
+  //TODO: Implement DetailController
   final EmployeeProvider _provider = EmployeeProvider();
   Rx<EmployeeDetailResponse> employeeDetail = EmployeeDetailResponse().obs;
 
@@ -25,9 +25,8 @@ class ProfileController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+    getEmployeeDetail("35");
   }
-
-  void increment() => count.value++;
 
   void getEmployeeDetail(String id) async {
     EasyLoading.show();
@@ -37,12 +36,10 @@ class ProfileController extends GetxController {
       if (response.data != null) {
         employeeDetail.value = response;
         EasyLoading.dismiss();
-
       } else {
         EasyLoading.dismiss();
         getxSnackbar("", "No Data Found!", red);
       }
     });
   }
-
 }

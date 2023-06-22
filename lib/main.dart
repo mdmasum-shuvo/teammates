@@ -57,12 +57,12 @@ Future<String> hasPreviousSession() async {
       //   // EasyLoading.showToast("Task Loaded"),
       // });
 
-      return Routes.HOME;
+      return Routes.SIGN_IN;
     } else {
-      return Routes.HOME;
+      return Routes.SIGN_IN;
     }
   }
-  return Routes.HOME;
+  return Routes.SIGN_IN;
 }
 
 class MyApp extends StatelessWidget {

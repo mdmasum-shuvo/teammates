@@ -155,14 +155,14 @@ class IndexView extends GetView<IndexController> {
                 height: 16.h,
               ),
               SizedBox(
-                child: ListView.builder(
+                child:Obx(() =>  ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                  itemCount: 6,
+                  itemCount: controller.employeeList.value.data?.length,
                   itemBuilder: (context, index) {
-                    return userItem();
+                    return userItem(controller.employeeList.value.data![index]);
                   },
-                ),
+                )),
               ),
             ],
           ),

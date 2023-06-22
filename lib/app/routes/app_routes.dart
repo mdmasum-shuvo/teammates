@@ -12,6 +12,7 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const RECENT = _Paths.RECENT;
   static const INDEX = _Paths.INDEX;
+  static const DETAIL = _Paths.DETAIL;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const RECENT = '/recent';
   static const INDEX = '/index';
+  static const DETAIL = '/detail';
 }

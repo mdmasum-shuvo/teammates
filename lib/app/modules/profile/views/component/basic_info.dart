@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:teammates/app/modules/index/model/EmployeeDetailResponse.dart';
 import 'package:teammates/theme/Colors.dart';
 import 'package:teammates/theme/text_theme.dart';
 
-Widget basicInfo() {
+Widget basicInfo(Data data) {
   return Container(
     width: double.infinity,
     decoration: BoxDecoration(
@@ -21,19 +22,19 @@ Widget basicInfo() {
       padding:  EdgeInsets.symmetric(vertical: 16.h),
       child: Column(
         children: [
-          text_16_500("Masum Talukder", Colors.white),
+          text_16_500(data.employeeName, Colors.white),
           SizedBox(
             height: 8.h,
           ),
-          text_12_400("Senior Software Engineer", Colors.white),
+          text_12_400(data.designationId, Colors.white),
           SizedBox(
             height: 8.h,
           ),
-          text_12_400("Mobile Apss Department", Colors.white),
+          text_12_400(data.contactNumber, Colors.white),
           SizedBox(
             height: 8.h,
           ),
-          text_12_400("Appinion BD LTD", Colors.white),
+          text_12_400(data.email, Colors.white),
         ],
       ),
     ),
