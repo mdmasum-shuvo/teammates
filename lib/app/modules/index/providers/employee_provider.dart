@@ -92,7 +92,7 @@ class EmployeeProvider extends GetConnect {
   Future<EmployeeDetailResponse> employeeDetail(String id) async {
     var url = "${Constants.baseUrl}/apiEmployee/employee_details";
     Map<String, String> qParams = {
-      'id': id,
+      'EmployeeId': id,
     };
     print("login url $url");
     final response =

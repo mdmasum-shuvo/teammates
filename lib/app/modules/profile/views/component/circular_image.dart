@@ -13,14 +13,14 @@ Widget circularProfileImage(String? img) {
     height: 100.h,
     width: 100.w,
     child: Container(
-      decoration:BoxDecoration(shape: BoxShape.circle,color: primaryDarkColor),
+      decoration:const BoxDecoration(shape: BoxShape.circle,color: primaryDarkColor),
         child: ClipOval(
           child: CachedNetworkImage(
               fit: BoxFit.cover,
               imageUrl: img ?? "",
               placeholder: (context, url) =>  Padding(
                 padding: EdgeInsets.all(4.r),
-                child: SpinKitCircle(
+                child: const SpinKitCircle(
                   color: Colors.black,
                   size: 30.0,
                 ),

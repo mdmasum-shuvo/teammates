@@ -25,7 +25,7 @@ class ProfileView extends GetView<ProfileController> {
                   alignment: Alignment.topCenter,
                   child: circularProfileImage("")),
               SizedBox(height: 24.h,),
-              Obx(() => basicInfo(controller.employeeDetail.value.data!))
+              Obx(() => basicInfo(controller.employeeDetail.value?.data))
 
             ],
           ),

@@ -29,20 +29,5 @@ class ProfileController extends GetxController {
 
   void increment() => count.value++;
 
-  void getEmployeeDetail(String id) async {
-    EasyLoading.show();
-
-    _provider.employeeDetail(id).then((response) async {
-      print(RxStatus.success().toString());
-      if (response.data != null) {
-        employeeDetail.value = response;
-        EasyLoading.dismiss();
-
-      } else {
-        EasyLoading.dismiss();
-        getxSnackbar("", "No Data Found!", red);
-      }
-    });
-  }
 
 }

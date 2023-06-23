@@ -9,37 +9,40 @@ import 'package:teammates/theme/text_theme.dart';
 import '../../../../../theme/Colors.dart';
 import '../../../../../theme/image_assets.dart';
 import '../../../../routes/app_pages.dart';
+import '../../../../utils/load_network_image.dart';
 
 Widget userItem(Data data) {
   return GestureDetector(
-      onTap: () {
-        Get.toNamed(Routes.DETAIL);
-      },
+    onTap: () {
+      Get.toNamed(Routes.DETAIL,arguments: [data.employeeId]);
+    },
     child: Card(
       shape: RoundedRectangleBorder(
-        borderRadius:
-        BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(12.r),
       ),
       child: Padding(
-        padding:  EdgeInsets.all(12.r),
+        padding: EdgeInsets.all(12.r),
         child: Row(
           children: [
             SizedBox(
               height: 48.h,
               width: 48.w,
-              child: const CircleAvatar(
-                backgroundImage: AssetImage(profile_logo),
-                backgroundColor: primaryDarkColor,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(100.h),
+                child: loadNetworkImage("${data.imagePath}${data.image}"),
               ),
             ),
-            SizedBox(width: 12.w,),
+            SizedBox(
+              width: 12.w,
+            ),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  text_14_500(data.employeeName,primaryDarkColor),
-                  text_10_400("${data.designationName} ${data.designationName}"),
+                  text_14_500(data.employeeName, primaryDarkColor),
+                  text_10_400(
+                      "${data.designationName} ${data.designationName}"),
                   text_10_400(data.email),
                 ],
               ),

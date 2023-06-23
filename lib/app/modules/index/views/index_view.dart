@@ -27,7 +27,7 @@ class IndexView extends GetView<IndexController> {
                 height: 16.h,
               ),
               text_14_400("Filter", primaryDarkColor),
-              SizedBox(
+      /*        SizedBox(
                 height: 16.h,
               ),
               Obx(
@@ -51,11 +51,60 @@ class IndexView extends GetView<IndexController> {
                     );
                   }).toList(),
                 ),
+              ),*/
+              SizedBox(
+                height: 10.h,
+              ),
+              Obx(
+                () => DropdownButtonFormField<String>(
+                 // value: controller.designation.value,
+                  icon: const Icon(Icons.arrow_drop_down_sharp),
+                  elevation: 16,
+                  style: textTheme1.titleMedium,
+                  decoration: const InputDecoration(
+                    hintText: "Select Designation",
+                  ),
+                  onChanged: (String? value) {
+                    //This is called when the user selects an item.
+                    controller.designation.value = value!;
+                  },
+                  items: controller.listDesignationStr.value
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                ),
               ),
               SizedBox(
                 height: 10.h,
               ),
               Obx(
+                () => DropdownButtonFormField<String>(
+                  icon: const Icon(Icons.arrow_drop_down_sharp),
+                  elevation: 16,
+                  style: textTheme1.titleMedium,
+                  decoration: const InputDecoration(
+                    hintText: "Select Department",
+                  ),
+                  onChanged: (String? value) {
+                    //This is called when the user selects an item.
+                    controller.department.value = value!;
+                  },
+                  items: controller.listDepartmentStr.value
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                ),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+      /*        Obx(
                 () => DropdownButtonFormField<String>(
                   value: controller.district.value,
                   icon: const Icon(Icons.arrow_drop_down_sharp),
@@ -79,57 +128,7 @@ class IndexView extends GetView<IndexController> {
               ),
               SizedBox(
                 height: 10.h,
-              ),
-              Obx(
-                () => DropdownButtonFormField<String>(
-                  value: controller.district.value,
-                  icon: const Icon(Icons.arrow_drop_down_sharp),
-                  elevation: 16,
-                  style: textTheme1.titleMedium,
-                  decoration: const InputDecoration(
-                    hintText: "ex: House, Road, Flat No.",
-                  ),
-                  onChanged: (String? value) {
-                    //This is called when the user selects an item.
-                    controller.district.value = value!;
-                  },
-                  items: controller.listDistrictStr.value
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              Obx(
-                () => DropdownButtonFormField<String>(
-                  value: controller.district.value,
-                  icon: const Icon(Icons.arrow_drop_down_sharp),
-                  elevation: 16,
-                  style: textTheme1.titleMedium,
-                  decoration: const InputDecoration(
-                    hintText: "ex: House, Road, Flat No.",
-                  ),
-                  onChanged: (String? value) {
-                    //This is called when the user selects an item.
-                    controller.district.value = value!;
-                  },
-                  items: controller.listDistrictStr.value
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
+              ),*/
               TextFormField(
                 keyboardType: TextInputType.phone,
                 controller: controller.emailPhoneController,

@@ -10,7 +10,7 @@ class DetailController extends GetxController {
   //TODO: Implement DetailController
   final EmployeeProvider _provider = EmployeeProvider();
   Rx<EmployeeDetailResponse> employeeDetail = EmployeeDetailResponse().obs;
-
+  String employeeId=Get.arguments[0];
   final count = 0.obs;
   @override
   void onInit() {
@@ -20,12 +20,12 @@ class DetailController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    getEmployeeDetail(employeeId);
   }
 
   @override
   void onClose() {
     super.onClose();
-    getEmployeeDetail("35");
   }
 
   void getEmployeeDetail(String id) async {

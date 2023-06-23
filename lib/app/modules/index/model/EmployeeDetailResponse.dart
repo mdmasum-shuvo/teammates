@@ -73,7 +73,8 @@ class Data {
       this.isTeacher, 
       this.image, 
       this.reason, 
-      this.userId,});
+      this.userId, 
+      this.imagePath,});
 
   Data.fromJson(dynamic json) {
     employeeId = json['EmployeeId'];
@@ -106,6 +107,7 @@ class Data {
     image = json['Image'];
     reason = json['Reason'];
     userId = json['UserId'];
+    imagePath = json['ImagePath'];
   }
   String? employeeId;
   String? branchId;
@@ -137,6 +139,7 @@ class Data {
   String? image;
   String? reason;
   String? userId;
+  String? imagePath;
 Data copyWith({  String? employeeId,
   String? branchId,
   String? employeeName,
@@ -167,6 +170,7 @@ Data copyWith({  String? employeeId,
   String? image,
   String? reason,
   String? userId,
+  String? imagePath,
 }) => Data(  employeeId: employeeId ?? this.employeeId,
   branchId: branchId ?? this.branchId,
   employeeName: employeeName ?? this.employeeName,
@@ -197,6 +201,7 @@ Data copyWith({  String? employeeId,
   image: image ?? this.image,
   reason: reason ?? this.reason,
   userId: userId ?? this.userId,
+  imagePath: imagePath ?? this.imagePath,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -230,6 +235,7 @@ Data copyWith({  String? employeeId,
     map['Image'] = image;
     map['Reason'] = reason;
     map['UserId'] = userId;
+    map['ImagePath'] = imagePath;
     return map;
   }
 
