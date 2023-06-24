@@ -14,12 +14,10 @@ import '../../sign_in/providers/sign_in_provider.dart';
 
 class IndexController extends GetxController {
   //TODO: Implement IndexController
-  final emailPhoneController = TextEditingController(text: "");
-  RxString district = "Dhaka".obs;
+  final searchController = TextEditingController(text: null);
   RxString department = "Select Department".obs;
   RxString designation = "Select Designation".obs;
 
-  RxList<String> listDistrictStr = <String>["Dhaka", "Tangail"].obs;
   final EmployeeProvider _provider = EmployeeProvider();
   final SettingsProvider _settingProvider = SettingsProvider();
   Rx<EmployeeResponse> employeeList = EmployeeResponse(data: List.empty()).obs;
@@ -37,6 +35,9 @@ class IndexController extends GetxController {
 
   RxList<String> listDesignationStr = <String>[].obs;
   RxList<String> listDesignationId = <String>[].obs;
+
+  String? selectedDesignationId = null;
+  String? selectedDepartmentId = null;
 
   @override
   void onInit() {
@@ -56,7 +57,7 @@ class IndexController extends GetxController {
     EasyLoading.show();
 
     _provider
-        .employeeList("company", "department", "designation", "code")
+        .employeeList("company", selectedDepartmentId, selectedDesignationId, searchController.text.toString())
         .then((response) async {
       print(RxStatus.success().toString());
       if (response.data != null) {
@@ -160,6 +161,37 @@ class IndexController extends GetxController {
 
     listDepartmentStr.value = listStr;
     listDepartmentId.value = listIds;
+  }
+
+  void getSelectedIdFromDepartment() {
+    for (int i = 0; i < listDepartmentStr.length; i++) {
+      if (department == listDepartmentStr[i]) {
+        if(department=="Select Department"){
+          selectedDepartmentId=null;
+          getEmployeeList();
+        }else{
+          selectedDepartmentId = listDepartmentId.value[i - 1];
+          getEmployeeList();
+          break;
+        }
+      }
+    }
+  }
+
+  void getSelectedIdFromDesignation() {
+    for (int i = 0; i < listDesignationStr.length; i++) {
+      if (designation == listDesignationStr[i]) {
+        if(designation=="Select Designation"){
+          selectedDesignationId=null;
+          getEmployeeList();
+        }else{
+          selectedDesignationId = listDesignationId[i - 1];
+          getEmployeeList();
+          break;
+        }
+
+      }
+    }
   }
 
 /*

@@ -15,6 +15,9 @@ class EmployeeProvider extends GetConnect {
     var url = "${Constants.baseUrl}/apiEmployee/employee_list";
     Map<String, String?> qParams = {
       'company_id': null,
+      'department_id': department,
+      'designation_id': designation,
+      'code': code,
     };
     print("login url $url");
     final response =

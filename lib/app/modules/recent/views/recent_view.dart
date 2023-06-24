@@ -23,7 +23,7 @@ class RecentView extends GetView<RecentController> {
               child: SingleChildScrollView(
             child: Column(
               children: [
-                TextFormField(
+  /*              TextFormField(
                   keyboardType: TextInputType.phone,
                   controller: controller.emailPhoneController,
                   decoration: const InputDecoration(
@@ -33,7 +33,7 @@ class RecentView extends GetView<RecentController> {
                     ),
                     hintText: "Search Contact",
                   ),
-                ),
+                ),*/
                 SizedBox(
                   height: 16.h,
                 ),

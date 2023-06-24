@@ -67,6 +67,7 @@ class IndexView extends GetView<IndexController> {
                   onChanged: (String? value) {
                     //This is called when the user selects an item.
                     controller.designation.value = value!;
+                    controller.getSelectedIdFromDesignation();
                   },
                   items: controller.listDesignationStr.value
                       .map<DropdownMenuItem<String>>((String value) {
@@ -91,6 +92,7 @@ class IndexView extends GetView<IndexController> {
                   onChanged: (String? value) {
                     //This is called when the user selects an item.
                     controller.department.value = value!;
+                    controller.getSelectedIdFromDepartment();
                   },
                   items: controller.listDepartmentStr.value
                       .map<DropdownMenuItem<String>>((String value) {
@@ -130,8 +132,8 @@ class IndexView extends GetView<IndexController> {
                 height: 10.h,
               ),*/
               TextFormField(
-                keyboardType: TextInputType.phone,
-                controller: controller.emailPhoneController,
+                keyboardType: TextInputType.text,
+                controller: controller.searchController,
                 decoration: const InputDecoration(
                   suffixIcon: Icon(
                     Icons.search,
@@ -139,6 +141,12 @@ class IndexView extends GetView<IndexController> {
                   ),
                   hintText: "Search Contact",
                 ),
+                onChanged: (text) {
+                  print('Enter on change pin is $text');
+                  controller.getEmployeeList();
+
+                  /// return the entered pin
+                },
               ),
               SizedBox(
                 height: 10.h,
