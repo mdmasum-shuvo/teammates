@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:teammates/app/modules/index/model/EmployeeResponse.dart';
-import 'package:teammates/theme/text_theme.dart';
+import 'package:contactbook/app/modules/index/model/EmployeeResponse.dart';
+import 'package:contactbook/theme/text_theme.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../theme/Colors.dart';
 import '../../../../../theme/image_assets.dart';
@@ -14,7 +15,7 @@ import '../../../../utils/load_network_image.dart';
 Widget userItem(Data data) {
   return GestureDetector(
     onTap: () {
-      Get.toNamed(Routes.DETAIL,arguments: [data.employeeId]);
+      Get.toNamed(Routes.DETAIL, arguments: [data.employeeId]);
     },
     child: Card(
       shape: RoundedRectangleBorder(
@@ -47,11 +48,23 @@ Widget userItem(Data data) {
                 ],
               ),
             ),
-            Image.asset(
-              callIcon,
-              height: 36.h,
-              width: 36.w,
-            )
+            data.contactNumber != null
+                ? GestureDetector(
+                    onTap: () async {
+                      final call = Uri.parse('tel:${data.contactNumber!}');
+                      if (await canLaunchUrl(call)) {
+                        launchUrl(call);
+                      } else {
+                        throw 'Could not launch $call';
+                      }
+                    },
+                    child: Image.asset(
+                      callIcon,
+                      height: 36.h,
+                      width: 36.w,
+                    ),
+                  )
+                : Container()
           ],
         ),
       ),

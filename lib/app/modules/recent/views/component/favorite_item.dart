@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:teammates/theme/Colors.dart';
-import 'package:teammates/theme/text_theme.dart';
+import 'package:contactbook/theme/Colors.dart';
+import 'package:contactbook/theme/text_theme.dart';
 
 import '../../../../../theme/image_assets.dart';
 import '../../../index/model/EmployeeResponse.dart';

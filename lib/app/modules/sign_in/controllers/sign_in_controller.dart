@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:teammates/app/utils/constants.dart';
 
 import '../../../routes/app_pages.dart';
+import '../../../utils/constants.dart';
 import '../../../utils/utils.dart';
 import '../providers/sign_in_provider.dart';
 
@@ -11,7 +11,7 @@ class SignInController extends GetxController {
   //TODO: Implement SignInController
   final SignInProvider _provider = SignInProvider();
 
-  final emailPhoneController = TextEditingController(text: "masum");
+  final emailPhoneController = TextEditingController(text: "E01422");
   final passwordController = TextEditingController(text: "12345678");
 
   final count = 0.obs;
@@ -42,6 +42,7 @@ class SignInController extends GetxController {
         EasyLoading.dismiss();
 
         Constants.token=response.token!;
+        Constants.isHeadOffice=response.user!.isHeadOffice!;
         Constants.headers = {
           "Accept": "application/json",
           "token": Constants.token

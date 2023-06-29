@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:teammates/theme/image_assets.dart';
-import 'package:teammates/theme/text_theme.dart';
+import 'package:contactbook/theme/image_assets.dart';
+import 'package:contactbook/theme/text_theme.dart';
 
 import '../../../../theme/Colors.dart';
 import '../../../../theme/app_bar_home.dart';
+import '../../../utils/custom_app_bar.dart';
 import '../../profile/views/component/basic_info.dart';
 import '../../profile/views/component/circular_image.dart';
 import '../controllers/detail_controller.dart';
@@ -17,7 +18,7 @@ class DetailView extends GetView<DetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppbarWidgetDashboard(),
+      appBar: customAppbarWidget("Detail", controller),
       backgroundColor: primaryColor,
       body: SingleChildScrollView(
         child: SafeArea(
@@ -85,16 +86,22 @@ class DetailView extends GetView<DetailController> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      text_12_400("Phone (Office)"),
-                      text_14_400(
-                          controller.employeeDetail.value.data?.contactNumber ??
-                              ""),
+                      text_12_400("Address"),
+                      text_14_400(controller
+                              .employeeDetail.value.data?.presentAddress ??
+                          ""),
                       SizedBox(
                         height: 16.h,
                       ),
-                      text_12_400("Phone (Home)"),
+                      text_12_400("Email"),
                       text_14_400(
-                          controller.employeeDetail.value.data?.contactNumber ??
+                          controller.employeeDetail.value.data?.email ?? ""),
+                      SizedBox(
+                        height: 16.h,
+                      ),
+                      text_12_400("Date of joining"),
+                      text_14_400(
+                          controller.employeeDetail.value.data?.dateOfJoining ??
                               ""),
                     ],
                   ),
@@ -115,15 +122,16 @@ class DetailView extends GetView<DetailController> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      text_12_400("Email (Office)"),
+                      text_12_400("NID"),
                       text_14_400(
-                          controller.employeeDetail.value.data?.email ?? ""),
+                          controller.employeeDetail.value.data?.nid ?? ""),
                       SizedBox(
                         height: 16.h,
                       ),
-                      text_12_400("Email (Personal)"),
+                      text_12_400("Date of Birth"),
                       text_14_400(
-                          controller.employeeDetail.value.data?.email ?? ""),
+                          controller.employeeDetail.value.data?.dateOfBirth ??
+                              ""),
                     ],
                   ),
                 ),

@@ -1,3 +1,4 @@
+import 'package:contactbook/app/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,23 +28,26 @@ class IndexView extends GetView<IndexController> {
                 height: 16.h,
               ),
               text_14_400("Filter", primaryDarkColor),
-      /*        SizedBox(
+              SizedBox(
                 height: 16.h,
               ),
+              Constants.isHeadOffice=="1"?
               Obx(
                 () => DropdownButtonFormField<String>(
-                  value: controller.district.value,
+                  value: controller.company.value,
                   icon: const Icon(Icons.arrow_drop_down_sharp),
                   elevation: 16,
                   style: textTheme1.titleMedium,
                   decoration: const InputDecoration(
-                    hintText: "ex: House, Road, Flat No.",
+                    hintText: "Select Company",
                   ),
                   onChanged: (String? value) {
                     //This is called when the user selects an item.
-                    controller.district.value = value!;
+                    controller.company.value = value!;
+                    controller.getSelectedIdFromCompany();
+
                   },
-                  items: controller.listDistrictStr.value
+                  items: controller.listCompanyStr.value
                       .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -51,11 +55,11 @@ class IndexView extends GetView<IndexController> {
                     );
                   }).toList(),
                 ),
-              ),*/
+              ):Container(),
               SizedBox(
                 height: 10.h,
               ),
-              Obx(
+              /*Obx(
                 () => DropdownButtonFormField<String>(
                  // value: controller.designation.value,
                   icon: const Icon(Icons.arrow_drop_down_sharp),
@@ -77,7 +81,7 @@ class IndexView extends GetView<IndexController> {
                     );
                   }).toList(),
                 ),
-              ),
+              ),*/
               SizedBox(
                 height: 10.h,
               ),

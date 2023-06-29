@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
-import 'package:teammates/app/modules/sign_in/model/LoginResponse.dart';
+import 'package:contactbook/app/modules/sign_in/model/LoginResponse.dart';
 
 import '../../../utils/constants.dart';
 import '../../../utils/error/ErrorResponse.dart';

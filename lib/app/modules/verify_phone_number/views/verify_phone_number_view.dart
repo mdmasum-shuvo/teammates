@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:teammates/app/routes/app_pages.dart';
-import 'package:teammates/theme/Colors.dart';
+import 'package:contactbook/app/routes/app_pages.dart';
+import 'package:contactbook/theme/Colors.dart';
 
 import '../../../../theme/button_theme.dart';
 import '../../../../theme/image_assets.dart';

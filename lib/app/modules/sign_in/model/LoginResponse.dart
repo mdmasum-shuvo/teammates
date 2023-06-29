@@ -50,48 +50,48 @@ User userFromJson(String str) => User.fromJson(json.decode(str));
 String userToJson(User data) => json.encode(data.toJson());
 class User {
   User({
-      this.id, 
-      this.userName, 
-      this.branchId, 
       this.employeeId, 
+      this.branchId, 
+      this.userName, 
       this.roleId, 
-      this.name,});
+      this.name, 
+      this.isHeadOffice,});
 
   User.fromJson(dynamic json) {
-    id = json['id'];
-    userName = json['user_name'];
-    branchId = json['BranchId'];
     employeeId = json['EmployeeId'];
+    branchId = json['BranchId'];
+    userName = json['user_name'];
     roleId = json['role_id'];
     name = json['name'];
+    isHeadOffice = json['IsHeadOffice'];
   }
-  String? id;
-  String? userName;
-  String? branchId;
   String? employeeId;
+  String? branchId;
+  String? userName;
   String? roleId;
   String? name;
-User copyWith({  String? id,
-  String? userName,
+  String? isHeadOffice;
+User copyWith({  String? employeeId,
   String? branchId,
-  String? employeeId,
+  String? userName,
   String? roleId,
   String? name,
-}) => User(  id: id ?? this.id,
-  userName: userName ?? this.userName,
+  String? isHeadOffice,
+}) => User(  employeeId: employeeId ?? this.employeeId,
   branchId: branchId ?? this.branchId,
-  employeeId: employeeId ?? this.employeeId,
+  userName: userName ?? this.userName,
   roleId: roleId ?? this.roleId,
   name: name ?? this.name,
+  isHeadOffice: isHeadOffice ?? this.isHeadOffice,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['id'] = id;
-    map['user_name'] = userName;
-    map['BranchId'] = branchId;
     map['EmployeeId'] = employeeId;
+    map['BranchId'] = branchId;
+    map['user_name'] = userName;
     map['role_id'] = roleId;
     map['name'] = name;
+    map['IsHeadOffice'] = isHeadOffice;
     return map;
   }
 

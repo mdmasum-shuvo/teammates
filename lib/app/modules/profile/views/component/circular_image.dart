@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:teammates/theme/image_assets.dart';
+import 'package:contactbook/theme/image_assets.dart';
 
 import '../../../../../theme/Colors.dart';
 

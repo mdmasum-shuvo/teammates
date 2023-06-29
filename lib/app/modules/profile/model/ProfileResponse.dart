@@ -1,49 +1,49 @@
 import 'dart:convert';
-EmployeeDetailResponse employeeDetailResponseFromJson(String str) => EmployeeDetailResponse.fromJson(json.decode(str));
-String employeeDetailResponseToJson(EmployeeDetailResponse data) => json.encode(data.toJson());
-class EmployeeDetailResponse {
-  EmployeeDetailResponse({
+ProfileResponse profileResponseFromJson(String str) => ProfileResponse.fromJson(json.decode(str));
+String profileResponseToJson(ProfileResponse data) => json.encode(data.toJson());
+class ProfileResponse {
+  ProfileResponse({
       this.status, 
       this.statusCode, 
       this.message, 
-      this.data,});
+      this.profile,});
 
-  EmployeeDetailResponse.fromJson(dynamic json) {
+  ProfileResponse.fromJson(dynamic json) {
     status = json['status'];
     statusCode = json['status_code'];
     message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    profile = json['data'] != null ? Profile.fromJson(json['data']) : null;
   }
   String? status;
   num? statusCode;
   String? message;
-  Data? data;
-EmployeeDetailResponse copyWith({  String? status,
+  Profile? profile;
+ProfileResponse copyWith({  String? status,
   num? statusCode,
   String? message,
-  Data? data,
-}) => EmployeeDetailResponse(  status: status ?? this.status,
+  Profile? profile,
+}) => ProfileResponse(  status: status ?? this.status,
   statusCode: statusCode ?? this.statusCode,
   message: message ?? this.message,
-  data: data ?? this.data,
+  profile: profile ?? this.profile,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['status'] = status;
     map['status_code'] = statusCode;
     map['message'] = message;
-    if (data != null) {
-      map['data'] = data?.toJson();
+    if (profile != null) {
+      map['data'] = profile?.toJson();
     }
     return map;
   }
 
 }
 
-Data dataFromJson(String str) => Data.fromJson(json.decode(str));
-String dataToJson(Data data) => json.encode(data.toJson());
-class Data {
-  Data({
+Profile dataFromJson(String str) => Profile.fromJson(json.decode(str));
+String dataToJson(Profile data) => json.encode(data.toJson());
+class Profile {
+  Profile({
       this.employeeId, 
       this.companyId, 
       this.companyName, 
@@ -63,11 +63,10 @@ class Data {
       this.dateOfJoining, 
       this.designation, 
       this.currentSalary, 
-      this.imagePath,
-      this.image,
-      this.isFavourite,});
+      this.imagePath, 
+      this.image,});
 
-  Data.fromJson(dynamic json) {
+  Profile.fromJson(dynamic json) {
     employeeId = json['EmployeeId'];
     companyId = json['CompanyId'];
     companyName = json['CompanyName'];
@@ -89,7 +88,6 @@ class Data {
     currentSalary = json['CurrentSalary'];
     imagePath = json['ImagePath'];
     image = json['Image'];
-    isFavourite = json['IsFavourite'];
   }
   String? employeeId;
   String? companyId;
@@ -112,8 +110,7 @@ class Data {
   String? currentSalary;
   String? imagePath;
   String? image;
-  String? isFavourite;
-Data copyWith({  String? employeeId,
+Profile copyWith({  String? employeeId,
   String? companyId,
   String? companyName,
   String? departmentName,
@@ -134,8 +131,7 @@ Data copyWith({  String? employeeId,
   String? currentSalary,
   String? imagePath,
   String? image,
-  String? isFavourite,
-}) => Data(  employeeId: employeeId ?? this.employeeId,
+}) => Profile(  employeeId: employeeId ?? this.employeeId,
   companyId: companyId ?? this.companyId,
   companyName: companyName ?? this.companyName,
   departmentName: departmentName ?? this.departmentName,
@@ -156,7 +152,6 @@ Data copyWith({  String? employeeId,
   currentSalary: currentSalary ?? this.currentSalary,
   imagePath: imagePath ?? this.imagePath,
   image: image ?? this.image,
-  isFavourite: isFavourite ?? this.isFavourite,
 );
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -181,7 +176,6 @@ Data copyWith({  String? employeeId,
     map['CurrentSalary'] = currentSalary;
     map['ImagePath'] = imagePath;
     map['Image'] = image;
-    map['IsFavourite'] = isFavourite;
     return map;
   }
 

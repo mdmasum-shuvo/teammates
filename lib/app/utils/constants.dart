@@ -30,4 +30,5 @@ class Constants {
   static String email = "";
   static String firstName = "";
   static String lastName = "";
+  static String isHeadOffice = "0";
 }

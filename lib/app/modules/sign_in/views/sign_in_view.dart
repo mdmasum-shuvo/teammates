@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:teammates/app/routes/app_pages.dart';
-import 'package:teammates/theme/Colors.dart';
-import 'package:teammates/theme/button_theme.dart';
-import 'package:teammates/theme/text_theme.dart';
+import 'package:contactbook/app/routes/app_pages.dart';
+import 'package:contactbook/theme/Colors.dart';
+import 'package:contactbook/theme/button_theme.dart';
+import 'package:contactbook/theme/text_theme.dart';
 
 import '../../../../theme/image_assets.dart';
 import '../controllers/sign_in_controller.dart';
@@ -20,13 +20,13 @@ class SignInView extends GetView<SignInController> {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Flexible(flex: 2,child: Spacer(),),
               Expanded(
                 child: Image.asset(
                   logo,
-                  height: 66.h,
+                  height: 90.h,
                 ),
               ),
               const Flexible(flex: 2,child: Spacer(),),

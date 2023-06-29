@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:teammates/app/modules/index/model/CompanyResponse.dart';
-import 'package:teammates/app/modules/index/model/DepartmentResponse.dart';
-import 'package:teammates/app/modules/index/model/DesignationResponse.dart';
-import 'package:teammates/app/modules/index/model/EmployeeResponse.dart';
-import 'package:teammates/app/modules/index/providers/employee_provider.dart';
-import 'package:teammates/app/modules/index/providers/settings_provider.dart';
+import 'package:contactbook/app/modules/index/model/CompanyResponse.dart';
+import 'package:contactbook/app/modules/index/model/DepartmentResponse.dart';
+import 'package:contactbook/app/modules/index/model/DesignationResponse.dart';
+import 'package:contactbook/app/modules/index/model/EmployeeResponse.dart';
+import 'package:contactbook/app/modules/index/providers/employee_provider.dart';
+import 'package:contactbook/app/modules/index/providers/settings_provider.dart';
 
 import '../../../../theme/Colors.dart';
 import '../../../utils/snackbar.dart';
@@ -17,6 +17,7 @@ class IndexController extends GetxController {
   final searchController = TextEditingController(text: null);
   RxString department = "Select Department".obs;
   RxString designation = "Select Designation".obs;
+  RxString company = "Select Company".obs;
 
   final EmployeeProvider _provider = EmployeeProvider();
   final SettingsProvider _settingProvider = SettingsProvider();
@@ -38,6 +39,7 @@ class IndexController extends GetxController {
 
   String? selectedDesignationId = null;
   String? selectedDepartmentId = null;
+  String? selectedCompanyId = null;
 
   @override
   void onInit() {
@@ -48,21 +50,21 @@ class IndexController extends GetxController {
   void onReady() {
     super.onReady();
     getEmployeeList();
-    getCompany();
-    getDepartment();
-    getDesignation();
+
   }
 
   void getEmployeeList() async {
     EasyLoading.show();
 
     _provider
-        .employeeList("company", selectedDepartmentId, selectedDesignationId, searchController.text.toString())
+        .employeeList(selectedCompanyId, selectedDepartmentId, selectedDesignationId,
+            searchController.text.toString())
         .then((response) async {
       print(RxStatus.success().toString());
       if (response.data != null) {
         EasyLoading.dismiss();
         employeeList.value = response;
+        getCompany();
       } else {
         EasyLoading.dismiss();
         getxSnackbar("", "No Data Found!", red);
@@ -70,39 +72,25 @@ class IndexController extends GetxController {
     });
   }
 
-  void getEmployeeDetail(String id) async {
-    EasyLoading.show();
-
-    _provider.employeeDetail(id).then((response) async {
-      print(RxStatus.success().toString());
-      if (response.data != null) {
-        // bannerResponse.value = response;
-        EasyLoading.dismiss();
-      } else {
-        EasyLoading.dismiss();
-        getxSnackbar("", "No Data Found!", red);
-      }
-    });
-  }
 
   void getDesignation() async {
-    EasyLoading.show();
+    //EasyLoading.show();
     _settingProvider.designationList().then((response) async {
       print(RxStatus.success().toString());
       if (response.data != null) {
         designationList.value = response;
         //designation.value = designationList.value!.data![0].designationName!;
         setDesignationData();
-        EasyLoading.dismiss();
+       // EasyLoading.dismiss();
       } else {
-        EasyLoading.dismiss();
+        //EasyLoading.dismiss();
         getxSnackbar("", "No Data Found!", red);
       }
     });
   }
 
   void getDepartment() async {
-    EasyLoading.show();
+   // EasyLoading.show();
 
     _settingProvider.departmentList().then((response) async {
       print(RxStatus.success().toString());
@@ -111,30 +99,37 @@ class IndexController extends GetxController {
         //department.value = departmentList.value!.data![0].departmentName!;
 
         setDepartmentData();
+        //getDesignation();
 
-        EasyLoading.dismiss();
+      //  EasyLoading.dismiss();
       } else {
-        EasyLoading.dismiss();
+        //getDesignation();
+
+        //  EasyLoading.dismiss();
         getxSnackbar("", "No Data Found!", red);
       }
     });
   }
 
   void getCompany() async {
-    EasyLoading.show();
+   // EasyLoading.show();
     _settingProvider.companyList().then((response) async {
       print(RxStatus.success().toString());
       if (response.data != null) {
-        // bannerResponse.value = response;
-        EasyLoading.dismiss();
+        companyList.value = response;
+        setCompanyData();
+
+        //  EasyLoading.dismiss();
       } else {
-        EasyLoading.dismiss();
+        getDepartment();
+
+        //  EasyLoading.dismiss();
         getxSnackbar("", "No Data Found!", red);
       }
     });
   }
 
-  void setDesignationData() {
+  void setDesignationData() async {
     List<String> listStr = [];
     List<String> listIds = [];
 
@@ -149,7 +144,7 @@ class IndexController extends GetxController {
     listDesignationId.value = listIds;
   }
 
-  void setDepartmentData() {
+  void setDepartmentData() async {
     List<String> listStr = [];
     List<String> listIds = [];
     listStr.add("Select Department");
@@ -166,10 +161,10 @@ class IndexController extends GetxController {
   void getSelectedIdFromDepartment() {
     for (int i = 0; i < listDepartmentStr.length; i++) {
       if (department == listDepartmentStr[i]) {
-        if(department=="Select Department"){
-          selectedDepartmentId=null;
+        if (department == "Select Department") {
+          selectedDepartmentId = null;
           getEmployeeList();
-        }else{
+        } else {
           selectedDepartmentId = listDepartmentId.value[i - 1];
           getEmployeeList();
           break;
@@ -181,15 +176,29 @@ class IndexController extends GetxController {
   void getSelectedIdFromDesignation() {
     for (int i = 0; i < listDesignationStr.length; i++) {
       if (designation == listDesignationStr[i]) {
-        if(designation=="Select Designation"){
-          selectedDesignationId=null;
+        if (designation == "Select Designation") {
+          selectedDesignationId = null;
           getEmployeeList();
-        }else{
+        } else {
           selectedDesignationId = listDesignationId[i - 1];
           getEmployeeList();
           break;
         }
+      }
+    }
+  }
 
+  void getSelectedIdFromCompany() {
+    for (int i = 0; i < listCompanyStr.length; i++) {
+      if (company == listCompanyStr[i]) {
+        if (company == "Select Company") {
+          selectedCompanyId = null;
+          getEmployeeList();
+        } else {
+          selectedCompanyId = listCompanyId[i - 1];
+          getEmployeeList();
+          break;
+        }
       }
     }
   }
@@ -211,5 +220,21 @@ class IndexController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+  }
+
+  void setCompanyData() async{
+    List<String> listStr = [];
+    List<String> listIds = [];
+    listStr.add("Select Company");
+
+    for (int i = 0; i < companyList.value.data!.length; i++) {
+      listStr.add(companyList.value.data![i].branchName!);
+      listIds.add(companyList.value.data![i].branchId.toString());
+    }
+
+    listCompanyStr.value = listStr;
+    listCompanyId.value = listIds;
+    getDepartment();
+
   }
 }

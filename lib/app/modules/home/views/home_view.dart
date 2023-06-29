@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:teammates/app/modules/index/views/index_view.dart';
-import 'package:teammates/app/modules/profile/views/profile_view.dart';
-import 'package:teammates/app/modules/recent/views/recent_view.dart';
+import 'package:contactbook/app/modules/index/views/index_view.dart';
+import 'package:contactbook/app/modules/profile/views/profile_view.dart';
+import 'package:contactbook/app/modules/recent/views/recent_view.dart';
 
 import '../../../../theme/Colors.dart';
 import '../../../../theme/app_bar_home.dart';

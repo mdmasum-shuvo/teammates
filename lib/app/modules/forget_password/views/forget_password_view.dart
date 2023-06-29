@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:teammates/app/routes/app_pages.dart';
+import 'package:contactbook/app/routes/app_pages.dart';
 
 import '../controllers/forget_password_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:teammates/theme/button_theme.dart';
-import 'package:teammates/theme/text_theme.dart';
+import 'package:contactbook/theme/button_theme.dart';
+import 'package:contactbook/theme/text_theme.dart';
 
 import '../../../../theme/image_assets.dart';
 class ForgetPasswordView extends GetView<ForgetPasswordController> {

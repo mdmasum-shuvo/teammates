@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:teammates/theme/text_theme.dart';
+import 'package:contactbook/theme/text_theme.dart';
 
 import '../../../../theme/Colors.dart';
 import '../controllers/recent_controller.dart';
@@ -15,6 +15,8 @@ class RecentView extends GetView<RecentController> {
   @override
   Widget build(BuildContext context) {
     Get.put(RecentController());
+    //controller.getEmployeeList();
+    //controller.getFavEmployeeList();
     return Scaffold(
         backgroundColor: primaryColor,
         body: Padding(

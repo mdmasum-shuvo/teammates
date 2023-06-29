@@ -4,11 +4,11 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:teammates/theme/theme.dart';
 
 import 'app/routes/app_pages.dart';
 import 'app/utils/constants.dart';
 import 'app/utils/utils.dart';
+import 'theme/theme.dart';
 
 void main() {
   Utils.configLoading();
