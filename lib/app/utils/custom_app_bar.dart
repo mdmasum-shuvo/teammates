@@ -1,4 +1,5 @@
 import 'package:contactbook/app/modules/detail/controllers/detail_controller.dart';
+import 'package:contactbook/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -17,7 +18,7 @@ AppBar customAppbarWidget(String title, DetailController controller) {
           color: secondaryColor,
         ),
         onPressed: () {
-          Get.back();
+          Get.offAllNamed(Routes.HOME);
         },
       ),
     ),
@@ -39,18 +40,18 @@ AppBar customAppbarWidget(String title, DetailController controller) {
           padding: EdgeInsets.only(right: 20.w),
           child: Row(children: [
             const Spacer(),
-            Obx(() =>
-                GestureDetector(
+            Obx(() => GestureDetector(
                   onTap: () {
-                    controller.isFav.value == "0" ? controller
-                        .getEmployeeFavoritePost( "1") : controller
-                        .getEmployeeFavoritePost("0");
+                    controller.isFav.value == "0"
+                        ? controller.getEmployeeFavoritePost("1")
+                        : controller.getEmployeeFavoritePost("0");
                   },
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Icon(
-                      controller.isFav.value == "0" ? Icons
-                          .favorite_border_outlined : Icons.favorite,
+                      controller.isFav.value == "0"
+                          ? Icons.favorite_border_outlined
+                          : Icons.favorite,
                       color: primaryDarkColor,
                     ),
                   ),

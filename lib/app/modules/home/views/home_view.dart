@@ -1,3 +1,4 @@
+import 'package:contactbook/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,6 +10,7 @@ import 'package:contactbook/app/modules/recent/views/recent_view.dart';
 import '../../../../theme/Colors.dart';
 import '../../../../theme/app_bar_home.dart';
 import '../../../../theme/text_theme.dart';
+import '../../recent/controllers/recent_controller.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -16,6 +18,7 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    //Get.put(RecentController());
     return Scaffold(
       appBar: customAppbarWidgetDashboard(),
       body: PageView(
@@ -105,6 +108,29 @@ class HomeView extends GetView<HomeController> {
                         text_10_400(
                             "Profile",
                             controller.tabIndex.value == 2
+                                ? primaryDarkColor
+                                : Colors.grey)
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      Container(); // if user taps on this dashboard tab will be active
+                      controller.tabIndex.value = 3;
+                      Get.offAllNamed(Routes.SIGN_IN);
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(Icons.logout,
+                            color: controller.tabIndex.value == 3
+                                ? primaryDarkColor
+                                : Colors.grey,
+                            size: 18),
+                        text_10_400(
+                            "Log Out",
+                            controller.tabIndex.value == 3
                                 ? primaryDarkColor
                                 : Colors.grey)
                       ],

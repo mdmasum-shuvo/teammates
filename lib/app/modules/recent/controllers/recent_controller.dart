@@ -23,8 +23,8 @@ class RecentController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    getEmployeeList();
-    getFavEmployeeList();
+   // getEmployeeList();
+   // getFavEmployeeList();
   }
 
   @override

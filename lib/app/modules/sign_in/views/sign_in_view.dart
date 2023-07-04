@@ -16,21 +16,27 @@ class SignInView extends GetView<SignInController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: Column(
+          child: Expanded(child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Flexible(flex: 2,child: Spacer(),),
+              const Flexible(
+                flex: 2,
+                child: Spacer(),
+              ),
               Expanded(
                 child: Image.asset(
                   logo,
                   height: 90.h,
                 ),
               ),
-              const Flexible(flex: 2,child: Spacer(),),
-
+              const Flexible(
+                flex: 2,
+                child: Spacer(),
+              ),
               Expanded(
                 flex: 5,
                 child: Column(
@@ -40,15 +46,16 @@ class SignInView extends GetView<SignInController> {
                     SizedBox(
                       height: 16.h,
                     ),
-                    text_12_400("Enter your registered official phone number"),
+                    text_12_400(
+                        "Enter your registered official Employee Code"),
                     SizedBox(
                       height: 16.h,
                     ),
                     TextFormField(
-                      keyboardType:TextInputType.phone ,
+                      keyboardType: TextInputType.text,
                       controller: controller.emailPhoneController,
                       decoration: InputDecoration(
-                        hintText: "+880 **************",
+                        hintText: "Employee Code",
                       ),
                     ),
                     SizedBox(
@@ -64,12 +71,13 @@ class SignInView extends GetView<SignInController> {
                       height: 8.h,
                     ),
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Get.toNamed(Routes.FORGET_PASSWORD);
                       },
                       child: Align(
                         alignment: Alignment.topRight,
-                        child: text_12_400("Forget Password", primaryDarkColor),
+                        child: text_12_400(
+                            "Forget Password", primaryDarkColor),
                       ),
                     ),
                     SizedBox(
@@ -84,7 +92,7 @@ class SignInView extends GetView<SignInController> {
                 child: Spacer(),
               )
             ],
-          ),
+          ),),
         ),
       ),
     );

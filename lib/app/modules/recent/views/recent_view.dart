@@ -15,8 +15,8 @@ class RecentView extends GetView<RecentController> {
   @override
   Widget build(BuildContext context) {
     Get.put(RecentController());
-    //controller.getEmployeeList();
-    //controller.getFavEmployeeList();
+    controller.getEmployeeList();
+    controller.getFavEmployeeList();
     return Scaffold(
         backgroundColor: primaryColor,
         body: Padding(
