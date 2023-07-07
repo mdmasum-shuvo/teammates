@@ -86,6 +86,7 @@ class MyApp extends StatelessWidget {
           home: child,
           builder: EasyLoading.init(),
           initialRoute: route,
+          debugShowCheckedModeBanner: false,
           getPages: AppPages.routes,
         );
       },

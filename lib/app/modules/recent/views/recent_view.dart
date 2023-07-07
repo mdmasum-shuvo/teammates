@@ -43,7 +43,7 @@ class RecentView extends GetView<RecentController> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     text_14_400("Favorite", primaryDarkColor),
-                    text_14_400("Add", primaryDarkColor)
+                    text_14_400("", primaryDarkColor)
                   ],
                 ),
                 SizedBox(

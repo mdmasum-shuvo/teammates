@@ -17,6 +17,7 @@ class SignInView extends GetView<SignInController> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      backgroundColor:primaryColor,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -29,7 +30,7 @@ class SignInView extends GetView<SignInController> {
               ),
               Expanded(
                 child: Image.asset(
-                  logo,
+                  teamMatesLogin,
                   height: 90.h,
                 ),
               ),

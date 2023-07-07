@@ -11,8 +11,8 @@ class SignInController extends GetxController {
   //TODO: Implement SignInController
   final SignInProvider _provider = SignInProvider();
 
-  final emailPhoneController = TextEditingController(text: "E01422");
-  final passwordController = TextEditingController(text: "12345678");
+  final emailPhoneController = TextEditingController(text: "");
+  final passwordController = TextEditingController(text: "");
 
   final count = 0.obs;
 
