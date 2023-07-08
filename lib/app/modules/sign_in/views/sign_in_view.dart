@@ -21,36 +21,28 @@ class SignInView extends GetView<SignInController> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: Expanded(child: Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Flexible(
-                flex: 2,
-                child: Spacer(),
-              ),
+
               Expanded(
                 child: Image.asset(
                   teamMatesLogin,
                   height: 90.h,
                 ),
               ),
-              const Flexible(
-                flex: 2,
-                child: Spacer(),
-              ),
               Expanded(
-                flex: 5,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     text_24_700("Sign In"),
                     SizedBox(
-                      height: 16.h,
+                      height: 12.h,
                     ),
                     text_12_400(
                         "Enter your registered official Employee Code"),
                     SizedBox(
-                      height: 16.h,
+                      height: 12.h,
                     ),
                     TextFormField(
                       keyboardType: TextInputType.text,
@@ -82,18 +74,20 @@ class SignInView extends GetView<SignInController> {
                       ),
                     ),
                     SizedBox(
-                      height: 16.h,
+                      height: 8.h,
                     ),
-                    primaryButton("Login", () => controller.login())
+                    primaryButton("Login", () => controller.login()),
+
+
                   ],
                 ),
               ),
-              const Flexible(
-                flex: 1,
-                child: Spacer(),
+              Expanded(
+                child: SizedBox(),
               )
+
             ],
-          ),),
+          ),
         ),
       ),
     );
