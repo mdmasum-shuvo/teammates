@@ -31,8 +31,8 @@ class DetailView extends GetView<DetailController> {
                 ),
                 Align(
                     alignment: Alignment.topCenter,
-                    child: circularProfileImage(
-                        "${controller.employeeDetail.value.data?.imagePath}${controller.employeeDetail.value.data?.image}")),
+                    child: Obx(() => circularProfileImage(
+                        "${controller.employeeDetail.value.data?.imagePath}${controller.employeeDetail.value.data?.image}"))),
                 SizedBox(
                   height: 24.h,
                 ),

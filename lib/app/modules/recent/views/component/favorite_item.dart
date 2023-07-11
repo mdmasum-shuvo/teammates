@@ -15,7 +15,7 @@ Widget favoriteItem(Data data) {
           height: 96.h,
           width: 96.w,
           child: CircleAvatar(
-            backgroundImage: AssetImage(profile_logo),
+            backgroundImage: NetworkImage("${data.imagePath}${data.image}"),
             backgroundColor: primaryDarkColor,
           ),
         ),

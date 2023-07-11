@@ -28,7 +28,7 @@ class SignInView extends GetView<SignInController> {
               Expanded(
                 child: Image.asset(
                   teamMatesLogin,
-                  height: 90.h,
+                  height: 60.h,
                 ),
               ),
               Expanded(

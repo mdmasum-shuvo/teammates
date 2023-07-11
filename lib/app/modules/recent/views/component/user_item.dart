@@ -45,7 +45,7 @@ Widget userItem(Data data) {
                 children: [
                   text_14_500(data.employeeName, primaryDarkColor),
                   text_10_400(
-                      "${data.designationName} ${data.designationName}"),
+                      "${data.designationName}"),
                   text_10_400(data.email),
                 ],
               ),
