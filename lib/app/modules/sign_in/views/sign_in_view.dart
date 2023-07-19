@@ -63,19 +63,6 @@ class SignInView extends GetView<SignInController> {
                     SizedBox(
                       height: 8.h,
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Get.toNamed(Routes.FORGET_PASSWORD);
-                      },
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: text_12_400(
-                            "Forget Password", primaryDarkColor),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
                     primaryButton("Login", () => controller.login()),
 
 

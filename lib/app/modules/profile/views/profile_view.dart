@@ -29,7 +29,8 @@ class ProfileView extends GetView<ProfileController> {
                 ),
                 Align(
                     alignment: Alignment.topCenter,
-                    child: circularProfileImage("")),
+                    child: Obx(() => circularProfileImage(
+                        "${controller.profileResponse.value.profile?.imagePath}${controller.profileResponse.value.profile?.image}"))),
                 SizedBox(
                   height: 24.h,
                 ),
@@ -41,34 +42,6 @@ class ProfileView extends GetView<ProfileController> {
                 ),
                 Obx(() => Column(
                       children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 40.0.w),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Image.asset(
-                                callIcon,
-                                width: 36.w,
-                                height: 36.w,
-                              ),
-                              Image.asset(
-                                chatIcon,
-                                width: 36.w,
-                                height: 36.w,
-                              ),
-                              Image.asset(
-                                whatsAppICon,
-                                width: 36.w,
-                                height: 36.w,
-                              ),
-                              Image.asset(
-                                messageIcon,
-                                width: 36.w,
-                                height: 36.w,
-                              ),
-                            ],
-                          ),
-                        ),
                         const Padding(
                           padding: EdgeInsets.symmetric(vertical: 24.0),
                           child: Center(
