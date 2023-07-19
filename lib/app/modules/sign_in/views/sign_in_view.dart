@@ -17,30 +17,36 @@ class SignInView extends GetView<SignInController> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor:primaryColor,
+      backgroundColor: primaryColor,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
 
               Expanded(
-                child: Image.asset(
-                  teamMatesLogin,
-                  height: 90.h,
-                ),
-              ),
-              Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        teamMatesLogin,
+                        height: 80.h,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 60.h,
+                    ),
+
                     text_24_700("Sign In"),
                     SizedBox(
                       height: 12.h,
                     ),
-                    text_12_400(
-                        "Enter your registered official Employee Code"),
+                    text_12_400("Enter your registered official Employee Code"),
                     SizedBox(
                       height: 12.h,
                     ),
@@ -61,18 +67,25 @@ class SignInView extends GetView<SignInController> {
                       ),
                     ),
                     SizedBox(
+                      height: 16.h,
+                    ),
+                    /*           GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.FORGET_PASSWORD);
+                      },
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: text_12_400(
+                            "Forget Password", primaryDarkColor),
+                      ),
+                    ),*/
+                    SizedBox(
                       height: 8.h,
                     ),
                     primaryButton("Login", () => controller.login()),
-
-
                   ],
                 ),
               ),
-              Expanded(
-                child: SizedBox(),
-              )
-
             ],
           ),
         ),
