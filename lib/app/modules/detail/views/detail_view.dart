@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:contactbook/theme/image_assets.dart';
 import 'package:contactbook/theme/text_theme.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../theme/Colors.dart';
 import '../../../../theme/app_bar_home.dart';
@@ -50,25 +54,72 @@ class DetailView extends GetView<DetailController> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Image.asset(
-                              callIcon,
-                              width: 36.w,
-                              height: 36.w,
+                            GestureDetector(
+                              onTap: ()async {
+                                final call = Uri.parse('tel:${controller.employeeDetail.value.data?.contactNumber??""}');
+                                if (await canLaunchUrl(call)) {
+                                  launchUrl(call);
+                                } else {
+                                  throw 'Could not launch $call';
+                                }
+                              } ,
+                              child: Image.asset(
+                                callIcon,
+                                width: 36.w,
+                                height: 36.w,
+                              ),
                             ),
-                            Image.asset(
-                              chatIcon,
-                              width: 36.w,
-                              height: 36.w,
+                            GestureDetector(
+                              onTap: ()async {
+                                final call = Uri.parse('mailto:${controller.employeeDetail.value.data?.email??""}');
+                                if (await canLaunchUrl(call)) {
+                                  launchUrl(call);
+                                } else {
+                                  throw 'Could not launch $call';
+                                }
+                              } ,
+                              child: Image.asset(
+                                chatIcon,
+                                width: 36.w,
+                                height: 36.w,
+                              ),
                             ),
-                            Image.asset(
-                              whatsAppICon,
-                              width: 36.w,
-                              height: 36.w,
+                            GestureDetector(
+                              onTap: () async{
+                                var androidUrl = "whatsapp://send?phone=${controller.employeeDetail.value.data?.email??""}&text=";
+                                var iosUrl = "https://wa.me/${controller.employeeDetail.value.data?.email??""}?text=${Uri.parse('')}";
+
+                                try{
+                                  if(Platform.isIOS){
+                                    await launchUrl(Uri.parse(iosUrl));
+                                  }
+                                  else{
+                                    await launchUrl(Uri.parse(androidUrl));
+                                  }
+                                } on Exception{
+                                  EasyLoading.showError('WhatsApp is not installed.');
+                                }
+                              },
+                              child: Image.asset(
+                                whatsAppICon,
+                                width: 36.w,
+                                height: 36.w,
+                              ),
                             ),
-                            Image.asset(
-                              messageIcon,
-                              width: 36.w,
-                              height: 36.w,
+                            GestureDetector(
+                              onTap: ()async {
+                                final call = Uri.parse('sms:${controller.employeeDetail.value.data?.contactNumber??""}');
+                                if (await canLaunchUrl(call)) {
+                                  launchUrl(call);
+                                } else {
+                                  throw 'Could not launch $call';
+                                }
+                              } ,
+                              child: Image.asset(
+                                messageIcon,
+                                width: 36.w,
+                                height: 36.w,
+                              ),
                             ),
                           ],
                         ),
