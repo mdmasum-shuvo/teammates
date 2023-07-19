@@ -25,22 +25,22 @@ class SignInView extends GetView<SignInController> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
-              Expanded(
+              Flexible(
+                flex: 2,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Image.asset(
+                    teamMatesLogin,
+                    height: 80.h,
+                  ),
+                ),
+              ),
+              Flexible(
+                flex: 4,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Align(
-                      alignment: Alignment.center,
-                      child: Image.asset(
-                        teamMatesLogin,
-                        height: 80.h,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 60.h,
-                    ),
 
                     text_24_700("Sign In"),
                     SizedBox(
@@ -83,9 +83,14 @@ class SignInView extends GetView<SignInController> {
                       height: 8.h,
                     ),
                     primaryButton("Login", () => controller.login()),
+
+
                   ],
                 ),
               ),
+              Flexible(
+                  flex: 1,
+                  child: Spacer())
             ],
           ),
         ),
