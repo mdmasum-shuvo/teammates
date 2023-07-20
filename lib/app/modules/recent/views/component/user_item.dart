@@ -31,7 +31,7 @@ Widget userItem(Data data) {
               height: 48.h,
               width: 48.w,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(100.h),
+                borderRadius: BorderRadius.circular(300.0),
                 child: loadNetworkImage("${data.imagePath}${data.image}"),
               ),
             ),

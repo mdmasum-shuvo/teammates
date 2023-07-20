@@ -25,7 +25,7 @@ class RecentView extends GetView<RecentController> {
               child: SingleChildScrollView(
             child: Column(
               children: [
-  /*              TextFormField(
+                /*              TextFormField(
                   keyboardType: TextInputType.phone,
                   controller: controller.emailPhoneController,
                   decoration: const InputDecoration(
@@ -39,32 +39,44 @@ class RecentView extends GetView<RecentController> {
                 SizedBox(
                   height: 16.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    text_14_400("Favorite", primaryDarkColor),
-                    text_14_400("", primaryDarkColor)
-                  ],
-                ),
-                SizedBox(
-                  height: 16.h,
-                ),
-                SizedBox(
-                  child: Obx(() => GridView.count(
-                        // Create a grid with 2 columns. If you change the scrollDirection to
-                        // horizontal, this produces 2 rows.
-                        crossAxisCount: 3,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        // Generate 100 widgets that display their index in the List.
-                        children: List.generate(
-                            controller.favEmployeeList.value.data!.length,
-                            (index) {
-                          return favoriteItem(
-                              controller.favEmployeeList.value.data![index]);
-                        }),
-                      )),
-                ),
+                Obx(() => Column(
+                      children: [
+                        if (controller.favEmployeeList.value.data!.isNotEmpty)
+                          Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  text_14_400("Favorite", primaryDarkColor),
+                                  text_14_400("", primaryDarkColor)
+                                ],
+                              ),
+                              SizedBox(
+                                height: 16.h,
+                              ),
+                              SizedBox(
+                                child: GridView.count(
+                                  // Create a grid with 2 columns. If you change the scrollDirection to
+                                  // horizontal, this produces 2 rows.
+                                  crossAxisCount: 3,
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  // Generate 100 widgets that display their index in the List.
+                                  children: List.generate(
+                                      controller.favEmployeeList.value.data!
+                                          .length, (index) {
+                                    return favoriteItem(controller
+                                        .favEmployeeList.value.data![index]);
+                                  }),
+                                ),
+                              )
+                            ],
+                          )
+                        else
+                          Container()
+                      ],
+                    )),
                 Align(
                     alignment: Alignment.topLeft,
                     child: text_14_400("Recent", primaryDarkColor)),
