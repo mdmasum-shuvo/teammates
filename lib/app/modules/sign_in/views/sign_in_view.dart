@@ -21,72 +21,67 @@ class SignInView extends GetView<SignInController> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      teamMatesLogin,
+                      height: 80.h,
+                    ),
+                  ),
+                  SizedBox(height: 60,),
 
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Align(
-                      alignment: Alignment.center,
-                      child: Image.asset(
-                        teamMatesLogin,
-                        height: 80.h,
-                      ),
+                  text_24_700("Sign In"),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  text_12_400("Enter your registered official Employee Code"),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  TextFormField(
+                    keyboardType: TextInputType.text,
+                    controller: controller.emailPhoneController,
+                    decoration: InputDecoration(
+                      hintText: "Employee Code",
                     ),
-                    SizedBox(
-                      height: 60.h,
+                  ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
+                  TextFormField(
+                    controller: controller.passwordController,
+                    decoration: InputDecoration(
+                      hintText: "enter password",
                     ),
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  /*           GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.FORGET_PASSWORD);
+                    },
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: text_12_400(
+                          "Forget Password", primaryDarkColor),
+                    ),
+                  ),*/
+                  SizedBox(
+                    height: 8.h,
+                  ),
+                  primaryButton("Login", () => controller.login()),
 
-                    text_24_700("Sign In"),
-                    SizedBox(
-                      height: 12.h,
-                    ),
-                    text_12_400("Enter your registered official Employee Code"),
-                    SizedBox(
-                      height: 12.h,
-                    ),
-                    TextFormField(
-                      keyboardType: TextInputType.text,
-                      controller: controller.emailPhoneController,
-                      decoration: InputDecoration(
-                        hintText: "Employee Code",
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    TextFormField(
-                      controller: controller.passwordController,
-                      decoration: InputDecoration(
-                        hintText: "enter password",
-                      ),
-                    ),
-                    SizedBox(
-                      height: 16.h,
-                    ),
-                    /*           GestureDetector(
-                      onTap: () {
-                        Get.toNamed(Routes.FORGET_PASSWORD);
-                      },
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: text_12_400(
-                            "Forget Password", primaryDarkColor),
-                      ),
-                    ),*/
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    primaryButton("Login", () => controller.login()),
-                  ],
-                ),
+
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
