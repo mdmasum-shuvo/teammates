@@ -19,12 +19,14 @@ Widget favoriteItem(Data data) {
     },
     child: Column(
       children: [
-        SizedBox(
-          height: 86.h,
-          width: 86,
-          child:ClipRRect(
-            borderRadius: BorderRadius.circular(100.0),
-            child: loadNetworkImage("${data.imagePath}${data.image}"),
+        Expanded(
+          child: SizedBox(
+            height: 86.h,
+            width: 86,
+            child:ClipRRect(
+              borderRadius: BorderRadius.circular(100.0),
+              child: loadNetworkImage("${data.imagePath}${data.image}"),
+            ),
           ),
         ),
         SizedBox(
