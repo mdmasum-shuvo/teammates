@@ -31,7 +31,7 @@ Widget userItem(Data data) {
               height: 48.h,
               width: 48.w,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(300.0),
+                borderRadius: BorderRadius.circular(100.h),
                 child: loadNetworkImage("${data.imagePath}${data.image}"),
               ),
             ),
@@ -45,27 +45,27 @@ Widget userItem(Data data) {
                 children: [
                   text_14_500(data.employeeName, primaryDarkColor),
                   text_10_400(
-                      "${data.designationName} ${data.designationName}"),
+                      "${data.designationName}"),
                   text_10_400(data.email),
                 ],
               ),
             ),
             data.contactNumber != null
                 ? GestureDetector(
-                    onTap: () async {
-                      final call = Uri.parse('tel:${data.contactNumber!}');
-                      if (await canLaunchUrl(call)) {
-                        launchUrl(call);
-                      } else {
-                        throw 'Could not launch $call';
-                      }
-                    },
-                    child: Image.asset(
-                      callIcon,
-                      height: 36.h,
-                      width: 36.w,
-                    ),
-                  )
+              onTap: () async {
+                final call = Uri.parse('tel:${data.contactNumber!}');
+                if (await canLaunchUrl(call)) {
+                  launchUrl(call);
+                } else {
+                  throw 'Could not launch $call';
+                }
+              },
+              child: Image.asset(
+                callIcon,
+                height: 36.h,
+                width: 36.w,
+              ),
+            )
                 : Container()
           ],
         ),
