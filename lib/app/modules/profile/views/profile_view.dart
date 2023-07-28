@@ -41,76 +41,104 @@ class ProfileView extends GetView<ProfileController> {
                   height: 36.h,
                 ),
                 Obx(() => Column(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 24.0),
-                          child: Center(
-                            child: Divider(
-                              height: 20,
-                              thickness: 1,
-                              color: secondaryColor,
-                            ),
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 40.0.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset(
+                            callIcon,
+                            width: 36.w,
+                            height: 36.w,
                           ),
-                        ),
-                        SizedBox(
-                          width: double.infinity,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              text_12_400("Address"),
-                              text_14_400(controller.profileResponse.value
-                                      .profile?.presentAddress ??
-                                  ""),
-                              SizedBox(
-                                height: 16.h,
-                              ),
-                              text_12_400("Email"),
-                              text_14_400(controller
-                                      .profileResponse.value.profile?.email ??
-                                  ""),
-                              SizedBox(
-                                height: 16.h,
-                              ),
-                              text_12_400("Date of joining"),
-                              text_14_400(controller.profileResponse.value
-                                      .profile?.dateOfJoining ??
-                                  ""),
-                            ],
+                          Image.asset(
+                            chatIcon,
+                            width: 36.w,
+                            height: 36.w,
                           ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 24.0),
-                          child: Center(
-                            child: Divider(
-                              height: 20,
-                              thickness: 1,
-                              color: secondaryColor,
-                            ),
+                          Image.asset(
+                            whatsAppICon,
+                            width: 36.w,
+                            height: 36.w,
                           ),
-                        ),
-                        SizedBox(
-                          width: double.infinity,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              text_12_400("NID"),
-                              text_14_400(controller
-                                      .profileResponse.value.profile?.nid ??
-                                  ""),
-                              SizedBox(
-                                height: 16.h,
-                              ),
-                              text_12_400("Date of Birth"),
-                              text_14_400(controller.profileResponse.value
-                                      .profile?.dateOfBirth ??
-                                  ""),
-                            ],
+                          Image.asset(
+                            messageIcon,
+                            width: 36.w,
+                            height: 36.w,
                           ),
+                        ],
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 24.0),
+                      child: Center(
+                        child: Divider(
+                          height: 20,
+                          thickness: 1,
+                          color: secondaryColor,
                         ),
-                      ],
-                    )),
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          text_12_400("Address"),
+                          text_14_400(controller.profileResponse.value
+                              .profile?.presentAddress ??
+                              ""),
+                          SizedBox(
+                            height: 16.h,
+                          ),
+                          text_12_400("Email"),
+                          text_14_400(controller
+                              .profileResponse.value.profile?.email ??
+                              ""),
+                          SizedBox(
+                            height: 16.h,
+                          ),
+                          text_12_400("Date of joining"),
+                          text_14_400(controller.profileResponse.value
+                              .profile?.dateOfJoining ??
+                              ""),
+                        ],
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 24.0),
+                      child: Center(
+                        child: Divider(
+                          height: 20,
+                          thickness: 1,
+                          color: secondaryColor,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          text_12_400("NID"),
+                          text_14_400(controller
+                              .profileResponse.value.profile?.nid ??
+                              ""),
+                          SizedBox(
+                            height: 16.h,
+                          ),
+                          text_12_400("Date of Birth"),
+                          text_14_400(controller.profileResponse.value
+                              .profile?.dateOfBirth ??
+                              ""),
+                        ],
+                      ),
+                    ),
+                  ],
+                )),
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 24.0),
                   child: Center(
