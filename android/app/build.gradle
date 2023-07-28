@@ -32,7 +32,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.appinion.teammates"
+    namespace "com.grasp.teammates"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 

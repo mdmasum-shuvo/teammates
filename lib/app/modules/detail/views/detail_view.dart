@@ -46,78 +46,154 @@ class DetailView extends GetView<DetailController> {
                 SizedBox(
                   height: 36.h,
                 ),
-                Obx(() => Column(
-                  children: [
+                Obx(
+                      () => Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 40.0.w),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: ()async {
+                                final call = Uri.parse('tel:${controller.employeeDetail.value.data?.contactNumber??""}');
+                                if (await canLaunchUrl(call)) {
+                                  launchUrl(call);
+                                } else {
+                                  throw 'Could not launch $call';
+                                }
+                              } ,
+                              child: Image.asset(
+                                callIcon,
+                                width: 36.w,
+                                height: 36.w,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: ()async {
+                                final call = Uri.parse('mailto:${controller.employeeDetail.value.data?.email??""}');
+                                if (await canLaunchUrl(call)) {
+                                  launchUrl(call);
+                                } else {
+                                  throw 'Could not launch $call';
+                                }
+                              } ,
+                              child: Image.asset(
+                                chatIcon,
+                                width: 36.w,
+                                height: 36.w,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () async{
+                                var androidUrl = "whatsapp://send?phone=${controller.employeeDetail.value.data?.email??""}&text=";
+                                var iosUrl = "https://wa.me/${controller.employeeDetail.value.data?.email??""}?text=${Uri.parse('')}";
 
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 24.0),
-                      child: Center(
-                        child: Divider(
-                          height: 20,
-                          thickness: 1,
-                          color: secondaryColor,
+                                try{
+                                  if(Platform.isIOS){
+                                    await launchUrl(Uri.parse(iosUrl));
+                                  }
+                                  else{
+                                    await launchUrl(Uri.parse(androidUrl));
+                                  }
+                                } on Exception{
+                                  EasyLoading.showError('WhatsApp is not installed.');
+                                }
+                              },
+                              child: Image.asset(
+                                whatsAppICon,
+                                width: 36.w,
+                                height: 36.w,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: ()async {
+                                final call = Uri.parse('sms:${controller.employeeDetail.value.data?.contactNumber??""}');
+                                if (await canLaunchUrl(call)) {
+                                  launchUrl(call);
+                                } else {
+                                  throw 'Could not launch $call';
+                                }
+                              } ,
+                              child: Image.asset(
+                                messageIcon,
+                                width: 36.w,
+                                height: 36.w,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          text_12_400("Address"),
-                          text_14_400(controller.employeeDetail.value
-                              .data?.presentAddress ??
-                              ""),
-                          SizedBox(
-                            height: 16.h,
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 24.0),
+                        child: Center(
+                          child: Divider(
+                            height: 20,
+                            thickness: 1,
+                            color: secondaryColor,
                           ),
-                          text_12_400("Email"),
-                          text_14_400(controller
-                              . employeeDetail.value.data?.email ??
-                              ""),
-                          SizedBox(
-                            height: 16.h,
-                          ),
-                          text_12_400("Date of joining"),
-                          text_14_400(controller.employeeDetail.value
-                              .data?.dateOfJoining ??
-                              ""),
-                        ],
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 24.0),
-                      child: Center(
-                        child: Divider(
-                          height: 20,
-                          thickness: 1,
-                          color: secondaryColor,
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          text_12_400("NID"),
-                          text_14_400(controller
-                              .employeeDetail.value.data?.nid ??
-                              ""),
-                          SizedBox(
-                            height: 16.h,
-                          ),
-                          text_12_400("Date of Birth"),
-                          text_14_400(controller.employeeDetail.value
-                              .data?.dateOfBirth ??
-                              ""),
-                        ],
+                      SizedBox(
+                        width: double.infinity,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            text_12_400("Address"),
+                            text_14_400(controller.employeeDetail.value.data
+                                ?.presentAddress ??
+                                ""),
+                            SizedBox(
+                              height: 16.h,
+                            ),
+                            text_12_400("Email"),
+                            text_14_400(
+                                controller.employeeDetail.value.data?.email ??
+                                    ""),
+                            SizedBox(
+                              height: 16.h,
+                            ),
+                            text_12_400("Date of joining"),
+                            text_14_400(controller
+                                .employeeDetail.value.data?.dateOfJoining ??
+                                ""),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                )),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 24.0),
+                        child: Center(
+                          child: Divider(
+                            height: 20,
+                            thickness: 1,
+                            color: secondaryColor,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            text_12_400("NID"),
+                            text_14_400(
+                                controller.employeeDetail.value.data?.nid ??
+                                    ""),
+                            SizedBox(
+                              height: 16.h,
+                            ),
+                            text_12_400("Date of Birth"),
+                            text_14_400(controller
+                                .employeeDetail.value.data?.dateOfBirth ??
+                                ""),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 24.0),
                   child: Center(
