@@ -34,7 +34,6 @@ Future<String> hasPreviousSession() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   var token = prefs.getString("token");
   var userId = prefs.getString("userId");
-  print("lalala $token");
   if (token != null) {
     if (token.isNotEmpty) {
       Constants.token = "Bearer $token";
@@ -72,7 +71,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var loggedIn = false;
 
     //Set the fit size (Find your UI design, look at the dimensions of the device screen and fill it in,unit in dp)
     return ScreenUtilInit(

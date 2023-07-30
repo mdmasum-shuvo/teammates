@@ -29,7 +29,8 @@ class ProfileView extends GetView<ProfileController> {
                 ),
                 Align(
                     alignment: Alignment.topCenter,
-                    child: circularProfileImage("")),
+                    child: Obx(() => circularProfileImage(
+                        "${controller.profileResponse.value.profile?.imagePath}${controller.profileResponse.value.profile?.image}"))),
                 SizedBox(
                   height: 24.h,
                 ),

@@ -23,19 +23,7 @@ AppBar customAppbarWidgetDashboard() {
           padding: EdgeInsets.only(right: 20.w),
           child: Row(children: [
             Spacer(),
-            GestureDetector(
-              onTap: (){
-               // Get.toNamed(Routes.SEARCH);
-              },
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: Icon(
-                  Icons.notifications,
-                  color: primaryDarkColor,
-                ),
-              ),
-            ),
-       
+
           ]),
         ),
       ]),

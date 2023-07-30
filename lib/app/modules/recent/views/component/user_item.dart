@@ -45,7 +45,7 @@ Widget userItem(Data data) {
                 children: [
                   text_14_500(data.employeeName, primaryDarkColor),
                   text_10_400(
-                      "${data.designationName} ${data.designationName}"),
+                      "${data.designationName}"),
                   text_10_400(data.email),
                 ],
               ),
@@ -54,13 +54,16 @@ Widget userItem(Data data) {
                 ? GestureDetector(
                     onTap: () async {
                       final call = Uri.parse('tel:${data.contactNumber!}');
-                      if (await canLaunchUrl(call)) {
+                      if (true) {
                         launchUrl(call);
                       } else {
                         throw 'Could not launch $call';
                       }
                     },
-                    child: Image.asset(
+                    child:
+
+
+                    Image.asset(
                       callIcon,
                       height: 36.h,
                       width: 36.w,
