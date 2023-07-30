@@ -54,7 +54,7 @@ Widget userItem(Data data) {
                 ? GestureDetector(
                     onTap: () async {
                       final call = Uri.parse('tel:${data.contactNumber!}');
-                      if (await canLaunchUrl(call)) {
+                      if (true) {
                         launchUrl(call);
                       } else {
                         throw 'Could not launch $call';

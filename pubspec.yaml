@@ -47,7 +47,7 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   focus_detector: ^2.0.0
   circle_nav_bar: ^2.0.1+1
-  url_launcher: ^6.1.11
+  url_launcher: ^6.1.12
 
   flutter:
     sdk: flutter

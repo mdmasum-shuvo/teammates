@@ -57,7 +57,7 @@ class DetailView extends GetView<DetailController> {
                             GestureDetector(
                               onTap: ()async {
                                 final call = Uri.parse('tel:${controller.employeeDetail.value.data?.contactNumber??""}');
-                                if (await canLaunchUrl(call)) {
+                                if (true) {
                                   launchUrl(call);
                                 } else {
                                   throw 'Could not launch $call';
@@ -71,8 +71,8 @@ class DetailView extends GetView<DetailController> {
                             ),
                             GestureDetector(
                               onTap: ()async {
-                                final call = Uri.parse('mailto:${controller.employeeDetail.value.data?.email??""}');
-                                if (await canLaunchUrl(call)) {
+                                final call = Uri.parse('sms:${controller.employeeDetail.value.data?.contactNumber??""}');
+                                if (true){//await canLaunchUrl(call)) {
                                   launchUrl(call);
                                 } else {
                                   throw 'Could not launch $call';
@@ -86,8 +86,8 @@ class DetailView extends GetView<DetailController> {
                             ),
                             GestureDetector(
                               onTap: () async{
-                                var androidUrl = "whatsapp://send?phone=${controller.employeeDetail.value.data?.email??""}&text=";
-                                var iosUrl = "https://wa.me/${controller.employeeDetail.value.data?.email??""}?text=${Uri.parse('')}";
+                                var androidUrl = "whatsapp://send?phone=${controller.employeeDetail.value.data?.contactNumber??""}&text=";
+                                var iosUrl = "https://wa.me/${controller.employeeDetail.value.data?.contactNumber??""}?text=${Uri.parse('')}";
 
                                 try{
                                   if(Platform.isIOS){
@@ -108,8 +108,8 @@ class DetailView extends GetView<DetailController> {
                             ),
                             GestureDetector(
                               onTap: ()async {
-                                final call = Uri.parse('sms:${controller.employeeDetail.value.data?.contactNumber??""}');
-                                if (await canLaunchUrl(call)) {
+                                final call = Uri.parse('mailto:${controller.employeeDetail.value.data?.email??""}');
+                                if (true) {
                                   launchUrl(call);
                                 } else {
                                   throw 'Could not launch $call';
