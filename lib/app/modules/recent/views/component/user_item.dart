@@ -60,7 +60,10 @@ Widget userItem(Data data) {
                         throw 'Could not launch $call';
                       }
                     },
-                    child: Image.asset(
+                    child:
+
+
+                    Image.asset(
                       callIcon,
                       height: 36.h,
                       width: 36.w,
