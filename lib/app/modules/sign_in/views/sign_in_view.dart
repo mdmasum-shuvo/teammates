@@ -56,8 +56,9 @@ class SignInView extends GetView<SignInController> {
                   ),
                   TextFormField(
                     controller: controller.passwordController,
+                    obscureText: true,
                     decoration: InputDecoration(
-                      hintText: "enter password",
+                      hintText: "Enter Password",
                     ),
                   ),
                   SizedBox(
