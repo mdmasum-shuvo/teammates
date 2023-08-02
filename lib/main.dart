@@ -4,15 +4,20 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:upgrader/upgrader.dart';
 
 import 'app/routes/app_pages.dart';
 import 'app/utils/constants.dart';
 import 'app/utils/utils.dart';
 import 'theme/theme.dart';
 
-void main() {
+void main() async {
   Utils.configLoading();
   var wi = WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Only call clearSavedSettings() during testing to reset internal values.
+  await Upgrader.clearSavedSettings(); // REMOVE this for release builds
 
   FlutterNativeSplash.preserve(widgetsBinding: wi);
 
@@ -71,9 +76,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     //Set the fit size (Find your UI design, look at the dimensions of the device screen and fill it in,unit in dp)
-    return ScreenUtilInit(
+    return UpgradeAlert(
+        child: ScreenUtilInit(
       designSize: const Size(360, 800),
       minTextAdapt: true,
       splitScreenMode: true,
@@ -88,7 +93,6 @@ class MyApp extends StatelessWidget {
           getPages: AppPages.routes,
         );
       },
-    );
+    ));
   }
 }
-

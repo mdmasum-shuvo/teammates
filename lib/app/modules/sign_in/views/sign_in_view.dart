@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:contactbook/app/routes/app_pages.dart';
 import 'package:contactbook/theme/Colors.dart';
 import 'package:contactbook/theme/button_theme.dart';
 import 'package:contactbook/theme/text_theme.dart';
