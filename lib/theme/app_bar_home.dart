@@ -19,6 +19,13 @@ AppBar customAppbarWidgetDashboard() {
             Image.asset(team_mates_logo_home,width: 126.w,),
           ],
         ),
+        Padding(
+          padding: EdgeInsets.only(right: 20.w),
+          child: Row(children: [
+            Spacer(),
+
+          ]),
+        ),
       ]),
     ),
   );

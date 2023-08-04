@@ -52,20 +52,23 @@ Widget userItem(Data data) {
             ),
             data.contactNumber != null
                 ? GestureDetector(
-              onTap: () async {
-                final call = Uri.parse('tel:${data.contactNumber!}');
-                if (await canLaunchUrl(call)) {
-                  launchUrl(call);
-                } else {
-                  throw 'Could not launch $call';
-                }
-              },
-              child: Image.asset(
-                callIcon,
-                height: 36.h,
-                width: 36.w,
-              ),
-            )
+                    onTap: () async {
+                      final call = Uri.parse('tel:${data.contactNumber!}');
+                      if (true) {
+                        launchUrl(call);
+                      } else {
+                        throw 'Could not launch $call';
+                      }
+                    },
+                    child:
+
+
+                    Image.asset(
+                      callIcon,
+                      height: 36.h,
+                      width: 36.w,
+                    ),
+                  )
                 : Container()
           ],
         ),
