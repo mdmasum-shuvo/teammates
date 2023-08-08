@@ -20,7 +20,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     //Get.put(RecentController());
     return Scaffold(
-      appBar: customAppbarWidgetDashboard(),
+      appBar: customAppbarWidgetDashboard(controller),
       body: PageView(
         controller: controller.pageController,
         onPageChanged: (v) {
@@ -46,6 +46,7 @@ class HomeView extends GetView<HomeController> {
                     onPressed: () {
                       // HomeView(); // if user taps on this dashboard tab will be active
                       controller.tabIndex.value = 0;
+                      controller.isFilterIcon.value=false;
                       controller.pageController
                           .jumpToPage(controller.tabIndex.value);
                     },
@@ -70,6 +71,8 @@ class HomeView extends GetView<HomeController> {
                     onPressed: () {
                       //CategoryView(); // if user taps on this dashboard tab will be active
                       controller.tabIndex.value = 1;
+                      controller.isFilterIcon.value=true;
+
                       controller.pageController
                           .jumpToPage(controller.tabIndex.value);
                     },

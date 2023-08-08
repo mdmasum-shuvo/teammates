@@ -55,7 +55,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.INDEX,
-      page: () => const IndexView(),
+      page: () =>  const IndexView(),
       binding: IndexBinding(),
     ),
     GetPage(

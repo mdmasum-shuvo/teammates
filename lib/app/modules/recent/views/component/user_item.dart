@@ -30,10 +30,7 @@ Widget userItem(Data data) {
             SizedBox(
               height: 48.h,
               width: 48.w,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(100.h),
-                child: loadNetworkImage("${data.imagePath}${data.image}"),
-              ),
+              child: loadNetworkImage("${data.imagePath}${data.image}"),
             ),
             SizedBox(
               width: 12.w,

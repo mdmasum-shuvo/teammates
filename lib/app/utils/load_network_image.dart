@@ -17,6 +17,15 @@ Widget loadNetworkImage(String img) {
         size: 30.0,
       ),
     ),
+    imageBuilder: (context, imageProvider) => Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        image: DecorationImage(
+          image: imageProvider,
+          fit: BoxFit.cover,
+        ),
+      ),
+    ),
     errorWidget: (context, url, error) => Padding(
       padding: EdgeInsets.all(4.r),
       child: CircleAvatar(

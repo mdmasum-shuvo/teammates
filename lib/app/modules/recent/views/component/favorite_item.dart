@@ -13,20 +13,20 @@ import '../../../../utils/load_network_image.dart';
 import '../../../index/model/EmployeeResponse.dart';
 
 Widget favoriteItem(Data data) {
+
   return GestureDetector(
     onTap: () {
       Get.toNamed(Routes.DETAIL, arguments: [data.employeeId]);
     },
     child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
           child: SizedBox(
-            height: 86.h,
-            width: 86,
-            child:ClipRRect(
-              borderRadius: BorderRadius.circular(100.0),
-              child: loadNetworkImage("${data.imagePath}${data.image}"),
-            ),
+            height: 68,
+            width: 68,
+            child:loadNetworkImage("${data.imagePath}${data.image}"),
           ),
         ),
         SizedBox(
@@ -36,6 +36,7 @@ Widget favoriteItem(Data data) {
           data.employeeName ?? "",
           style: textTheme1.bodyLarge?.copyWith(color: Colors.black),
           maxLines: 1,
+          textAlign: TextAlign.center,
         ),
         SizedBox(
           height: 16.h,

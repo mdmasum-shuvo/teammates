@@ -1,4 +1,6 @@
 
+import 'package:get/get.dart';
+
 class Constants {
   static var headers = {'Accept': "application/json"};
 
@@ -14,4 +16,6 @@ class Constants {
   static String firstName = "";
   static String lastName = "";
   static String isHeadOffice = "0";
+  static var isFilter = false.obs;
+
 }

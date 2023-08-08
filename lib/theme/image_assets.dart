@@ -7,5 +7,7 @@ const chatIcon= "assets/images/chat.png";
 const whatsAppICon= "assets/images/whats_app.png";
 const messageIcon= "assets/images/message.png";
 const teamMatesLogin= "assets/images/teammates_logo.png";
+const filterAlt= "assets/images/filter_alt.png";
+const filterAltOff= "assets/images/filter_alt_off.png";
 
 

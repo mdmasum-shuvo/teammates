@@ -6,6 +6,8 @@ class HomeController extends GetxController {
   RxInt tabIndex = 0.obs;
   late PageController pageController;
   final count = 0.obs;
+  final isFilter = false.obs;
+  final isFilterIcon = false.obs;
   @override
   void onInit() {
     super.onInit();
